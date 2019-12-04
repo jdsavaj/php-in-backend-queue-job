@@ -1,5 +1,5 @@
 # PHP-in-Backend-Queue-Job
-1.call index.php
+<li>call index.php</li>
 
 # Queue Processing Job in PHP You Easily Implement in Codeigniter
 
@@ -7,9 +7,9 @@ first you add libraries file on Codeigniter libraries folder
 
 You load libraries file load in Codeigniter
 
-1. You Load libraries file custom
-$this->load->library('someclass');
+<li>You Load libraries file custom</li>
+<p>$this->load->library('someclass');</p>
 
-2.you load application\config\autoload.php
+<li>you load application\config\autoload.php</li>
 <p>$autoload['libraries'] = array('database','QueueJob');</p>
 
