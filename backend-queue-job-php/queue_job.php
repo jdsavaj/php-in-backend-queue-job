@@ -25,10 +25,10 @@ function queue_system_example($count,$conn) {
   $queue = new QueueJob();
   // Populate the queue.
   for ($i = 1; $i <= $count; $i++) {
-    $getSql = "SELECT fname as fname FROM demo_queue WHERE qid=".$i." ";
+    $getSql = "SELECT fname as fname FROM demo_queue WHERE qid=".$i." ";//Select data Query 
     $getData = $conn->query($getSql)->fetch_assoc();
 
-    $putSql = "UPDATE demo_queue SET fname ='XYZ".$i."' WHERE qid=".$i." ";
+    $putSql = "UPDATE demo_queue SET fname ='XYZ".$i."' WHERE qid=".$i." ";//Update Data Query
     $conn->query($putSql);
 
     $data = range(1, $i + 1);
