@@ -11,5 +11,5 @@ You load libraries file load in Codeigniter
 $this->load->library('someclass');
 
 2.you load application\config\autoload.php
-$autoload['libraries'] = array('database','QueueJob');
+<p>$autoload['libraries'] = array('database','QueueJob');</p>
 
