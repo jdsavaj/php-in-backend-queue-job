@@ -7,5 +7,6 @@
 <body>
 	<h1>Thank You</h1>
 	<h3>You Check Your Database Update rows</h3>
+	<h5>Every 2 Second Data Update On database</h5>
 </body>
 </html>
