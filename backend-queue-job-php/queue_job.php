@@ -34,7 +34,7 @@ function queue_system_example($count,$conn,$altname) {
 
     $data = range(1, $i + 1);
     $queue->createItem($data);
-    sleep(5);//This For Check Load in Queue Work in Backend
+    sleep(2);//This For Check Load in Queue Work in Backend
   }
   $jobs_to_do = TRUE;
   $start = microtime(true);
