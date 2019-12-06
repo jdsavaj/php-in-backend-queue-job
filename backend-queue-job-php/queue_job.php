@@ -17,23 +17,24 @@ if ($conn->connect_error) {
 $sql = "SELECT count(qid) as totalRecords FROM demo_queue";
 $totalRecords = $conn->query($sql)->fetch_assoc();
 // $conn->close();
-
-function queue_system_example($count,$conn) {
+// echo $_POST['altname'];
+// die();
+function queue_system_example($count,$conn,$altname) {
   // echo $count.'<br>';
   require_once(dirname(__FILE__) . '/libraries/QueueJob.php');
 
   $queue = new QueueJob();
   // Populate the queue.
   for ($i = 1; $i <= $count; $i++) {
-    $getSql = "SELECT fname as fname FROM demo_queue WHERE qid=".$i." ";//Select data Query 
+    $getSql = "SELECT fname as fname FROM demo_queue WHERE qid=".$i." ";
     $getData = $conn->query($getSql)->fetch_assoc();
 
-    $putSql = "UPDATE demo_queue SET fname ='XYZ".$i."' WHERE qid=".$i." ";//Update Data Query
+    $putSql = "UPDATE demo_queue SET fname ='".$altname."' WHERE qid=".$i." ";
     $conn->query($putSql);
 
     $data = range(1, $i + 1);
     $queue->createItem($data);
-    sleep(1);//This For Check Load in Queue Work in Backend
+    sleep(5);//This For Check Load in Queue Work in Backend
   }
   $jobs_to_do = TRUE;
   $start = microtime(true);
@@ -84,4 +85,4 @@ function execute_the_job_task($item) {
   // Do something with the item.
   return TRUE;
 }
-queue_system_example($totalRecords['totalRecords'],$conn);
+queue_system_example($totalRecords['totalRecords'],$conn,$_POST['altname']);
